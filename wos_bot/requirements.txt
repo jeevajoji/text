@@ -1,0 +1,8 @@
+# Python 3.11+
+# adbutils talks to the adb server over a socket (no adb.exe process per command).
+# Its Windows wheel bundles adb.exe, so a separate platform-tools install is optional.
+adbutils>=2.8,<3
+numpy>=1.26
+# Full build (not -headless): tools/capture.py needs the GUI window for cropping.
+opencv-python>=4.10,<6
+PyYAML>=6.0

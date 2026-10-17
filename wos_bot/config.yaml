@@ -1,0 +1,27 @@
+# Whiteout Survival bot configuration.
+# Unknown keys are rejected at startup, so a typo fails loudly instead of being ignored.
+
+adb:
+  # Address of the emulator's ADB endpoint. Defaults per emulator (first instance):
+  #   BlueStacks 5 : 127.0.0.1:5555   (Settings > Advanced > Android Debug Bridge shows the port)
+  #   LDPlayer 9   : 127.0.0.1:5555   (also listed as emulator-5554)
+  #   MuMu 12      : 127.0.0.1:16384
+  # Run `python tools/check_adb.py --scan` if you are unsure.
+  serial: "127.0.0.1:5555"
+  # Leave empty to let adbutils pick adb (PATH first, then its bundled adb.exe).
+  # Only used to start the adb server if none is running.
+  adb_path: ""
+  # Seconds to wait for connect / a single ADB command.
+  timeout: 10
+
+game:
+  # Android package name of Whiteout Survival (global release).
+  package: "com.gof.global"
+  # Expected emulator resolution; check_adb.py warns if the device differs.
+  width: 720
+  height: 1280
+  dpi: 240
+
+logging:
+  level: "INFO"        # console level; the log file always gets DEBUG
+  dir: "logs"          # relative to this folder; failure screenshots go to <dir>/failures
